@@ -32,13 +32,14 @@ Auto_Jobs_Applier_AIHawk is continuously evolving, and your feedback, suggestion
 2. [Features](#features)
 3. [Installation](#installation)
 4. [Configuration](#configuration)
-5. [Usage](#usage)
-6. [Documentation](#documentation)
-7. [Troubleshooting](#troubleshooting)
-8. [Conclusion](#conclusion)
-9. [Contributors](#contributors)
-10. [License](#license)
-11. [Disclaimer](#disclaimer)
+5. [User Interface (UI)](#user-interface-ui)
+6. [Usage](#usage)
+7. [Documentation](#documentation)
+8. [Troubleshooting](#troubleshooting)
+9. [Conclusion](#conclusion)
+10. [Contributors](#contributors)
+11. [License](#license)
+12. [Disclaimer](#disclaimer)
 
 ## Introduction
 
@@ -437,6 +438,55 @@ Using this folder as a guide can be particularly helpful for:
 1. Understanding the correct structure of each configuration file
 2. Seeing examples of valid data for each field
 3. Having a reference point while filling out your personal files
+
+## User Interface (UI)
+
+### Web Application Overview
+
+AIHawk now features a modern, intuitive web interface that simplifies the job application process. The UI is designed to provide a seamless and user-friendly experience for job seekers.
+
+#### Key UI Features
+
+1. **Dashboard**
+   - Real-time job application tracking
+   - Application status overview
+   - Performance metrics and insights
+
+2. **Job Application Management**
+   - Easy job listing browsing
+   - One-click application submission
+   - Customizable application templates
+   - Resume and cover letter management
+
+3. **AI-Powered Recommendations**
+   - Personalized job recommendations
+   - Skill match analysis
+   - Application optimization suggestions
+
+#### Technology Stack
+
+- Frontend: Flask
+- Templating: Jinja2
+- Styling: Bootstrap
+- Interactivity: JavaScript
+
+#### Accessing the Web UI
+
+To launch the web interface:
+
+```bash
+python src/web_ui.py
+```
+
+The application will be accessible at `http://localhost:5000`
+
+### Screenshots
+
+[Placeholder for UI screenshots - to be added]
+
+### Customization
+
+The UI is fully customizable. You can modify templates in `src/templates/` and adjust styles in the CSS files.
 
 ## Usage
 
