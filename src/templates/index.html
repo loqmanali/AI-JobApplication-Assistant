@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Jobs Applier - Configuration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Auto Jobs Applier Configuration</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" class="needs-validation" novalidate>
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Basic Settings</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Remote Work -->
+                    <div class="mb-3">
+                        <label class="form-label">Remote Work Preference</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="remote" value="true" id="remote-yes">
+                            <label class="form-check-label" for="remote-yes">Remote Only</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="remote" value="false" id="remote-no">
+                            <label class="form-check-label" for="remote-no">All Jobs</label>
+                        </div>
+                    </div>
+
+                    <!-- Experience Level -->
+                    <div class="mb-3">
+                        <label class="form-label">Experience Level</label>
+                        <div class="row">
+                            {% for level in ['internship', 'entry', 'associate', 'mid_senior_level', 'director', 'executive'] %}
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" name="{{ level }}" id="{{ level }}">
+                                    <label class="form-check-label" for="{{ level }}">{{ level|replace('_', ' ')|title }}</label>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Job Types -->
+                    <div class="mb-3">
+                        <label class="form-label">Job Types</label>
+                        <div class="row">
+                            {% for type in ['full_time', 'contract', 'part_time', 'temporary', 'job_internship', 'other', 'volunteer'] %}
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" name="{{ type }}" id="{{ type }}">
+                                    <label class="form-check-label" for="{{ type }}">{{ type|replace('_', ' ')|title }}</label>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Date Filter -->
+                    <div class="mb-3">
+                        <label class="form-label">Date Filter</label>
+                        <select class="form-select" name="date_filter" required>
+                            <option value="all_time">All Time</option>
+                            <option value="month">Past Month</option>
+                            <option value="week">Past Week</option>
+                            <option value="24_hours">Past 24 Hours</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Location & Position Settings</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Positions -->
+                    <div class="mb-3">
+                        <label class="form-label">Job Positions (comma-separated)</label>
+                        <input type="text" class="form-control" name="positions" placeholder="Software Engineer, Developer, etc." required>
+                    </div>
+
+                    <!-- Locations -->
+                    <div class="mb-3">
+                        <label class="form-label">Locations (comma-separated)</label>
+                        <input type="text" class="form-control" name="locations" placeholder="New York, San Francisco, etc." required>
+                    </div>
+
+                    <!-- Distance -->
+                    <div class="mb-3">
+                        <label class="form-label">Distance (miles)</label>
+                        <select class="form-select" name="distance" required>
+                            {% for dist in [0, 5, 10, 25, 50, 100] %}
+                            <option value="{{ dist }}">{{ dist }} miles</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Blacklist Settings</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Blacklists -->
+                    <div class="mb-3">
+                        <label class="form-label">Location Blacklist (comma-separated)</label>
+                        <input type="text" class="form-control" name="location_blacklist" placeholder="Optional: locations to exclude">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Company Blacklist (comma-separated)</label>
+                        <input type="text" class="form-control" name="company_blacklist" placeholder="Optional: companies to exclude">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Title Blacklist (comma-separated)</label>
+                        <input type="text" class="form-control" name="title_blacklist" placeholder="Optional: job titles to exclude">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Authentication Settings</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Authentication -->
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">OpenAI API Key</label>
+                        <input type="password" class="form-control" name="openai_api_key" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg px-5">Save Configuration</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        // Form validation
+        (() => {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>
+</html>

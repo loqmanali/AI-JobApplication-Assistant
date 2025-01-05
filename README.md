@@ -22,7 +22,7 @@ As AIHawk is focusing on their proprietary product - solving problems in hiring 
 
 We are looking to expand our FOSS maintainers team! If you are from a non-technical background, you can be part of the project management team, triaging issues, and shaping the project. If you are a technical person, you can join in doing code reviews, participating in releases, and building a better version of this product.
 
-reach out to [surapuramakhil](https://github.com/surapuramakhil) on Discord. [Special thanks](#special-thanks) 
+reach out to [surapuramakhil](https://github.com/surapuramakhil) on Discord. [Special thanks](#special-thanks)
 
 Auto_Jobs_Applier_AIHawk is continuously evolving, and your feedback, suggestions, and contributions are highly valued. Feel free to open issues, suggest enhancements, or submit pull requests to help improve the project. Let's work together to make Auto_Jobs_Applier_AIHawk a powerful tool for job seekers worldwide.
 
@@ -48,7 +48,6 @@ Auto_Jobs_Applier_AIHawk is a cutting-edge, automated tool designed to revolutio
 
 In the digital age, the job search landscape has undergone a dramatic transformation. While online platforms have opened up a world of opportunities, they have also intensified competition. Job seekers often find themselves spending countless hours scrolling through listings, tailoring applications, and repetitively filling out forms. This process can be not only time-consuming but also emotionally draining, leading to job search fatigue and missed opportunities.
 
-
 ## Installation
 
 **Confirmed successful runs on the following:**
@@ -61,7 +60,7 @@ In the digital age, the job search landscape has undergone a dramatic transforma
   - 3.11.9(64b)
   - 3.12.5(64b)
 
-### Option 1: Using Python Virtual Environment 
+### Option 1: Using Python Virtual Environment
 
 1. **Download and Install Python:**
 
@@ -85,6 +84,7 @@ In the digital age, the job search landscape has undergone a dramatic transforma
 4. **Activate virtual environment:**
 
    For Unix-based machines -
+
    ```bash
    python3 -m venv virtual
    ```
@@ -101,7 +101,7 @@ In the digital age, the job search landscape has undergone a dramatic transforma
 
 5. **Install the required packages:**
 
-   Before installing the required packages, make sure to install https://visualstudio.microsoft.com/visual-cpp-build-tools/ and select "Desktop development with C++".
+   Before installing the required packages, make sure to install <https://visualstudio.microsoft.com/visual-cpp-build-tools/> and select "Desktop development with C++".
 
    ```bash
    pip install -r requirements.txt
@@ -123,7 +123,6 @@ This file contains sensitive information. Never share or commit this file to ver
     OpenAI will update your account automatically, but it might take some time, ranging from a couple of hours to a few days.  
     You can find more about your organization's limits on the [official page](https://platform.openai.com/settings/organization/limits).
   - For obtaining Gemini API key visit [Google AI for Devs](https://ai.google.dev/gemini-api/docs/api-key)
-
 
 #### 1.1 config.py - Customize LLM model endpoint
 
@@ -450,8 +449,6 @@ Using this folder as a guide can be particularly helpful for:
     Contains the output of the bot.
     TODO
 
-
-
 3. **Run the Bot:**
 
    Auto_Jobs_Applier_AIHawk offers flexibility in how it handles your PDF resume:
@@ -461,7 +458,6 @@ Using this folder as a guide can be particularly helpful for:
    ```bash
    python main.py
    ```
-
 
 ### Troubleshooting
 
@@ -502,7 +498,6 @@ yaml.scanner.ScannerError: while scanning a simple key
 - Use a YAML validator tool
 - Avoid unnecessary special characters or quotes
 
-
 ### General Troubleshooting Tips
 
 - Use the latest version of the script
@@ -519,27 +514,27 @@ For further assistance, please create an issue on the [GitHub repository](https:
 - Ollama Setup
   - Follow the instructions beloe to ensure proper configuration of **AIHawk** with **Ollama** and **Gemini**.
   - Written by Rushi, [Linkedin](https://www.linkedin.com/in/rushichaganti/), support him by following.
-  - Step 1: If your system meets the requirements for Ollama, install it from the following URL https://ollama.com/download.
-  - Step 2: Verify Ollama is Running 
+  - Step 1: If your system meets the requirements for Ollama, install it from the following URL <https://ollama.com/download>.
+  - Step 2: Verify Ollama is Running
     - Open a browser and navigate to localhost:11434  to confirm Ollama is running
-   - If Ollama runs correctly, you'll see confirmation in the browser.
-   - Step 3: Edit Configuration in VS Code
-     - Edit the file config.py located at Auto_Jobs_Applier_AIHawk\config.py with the following
-     - llm_model_type: ollama 
-     - llm_model: 'llama3.2:1b' 
-     - llm_api_url: 'http://127.0.0.1:11434/'
-     
+  - If Ollama runs correctly, you'll see confirmation in the browser.
+  - Step 3: Edit Configuration in VS Code
+    - Edit the file config.py located at Auto_Jobs_Applier_AIHawk\config.py with the following
+    - llm_model_type: ollama
+    - llm_model: 'llama3.2:1b'
+    - llm_api_url: '<http://127.0.0.1:11434/>'
+
 - Gemini Setup
   - Follow the instructions beloe to ensure proper configuration of **AIHawk** with **Ollama** and **Gemini**.
   - Written by Rushi, [Linkedin](https://www.linkedin.com/in/rushichaganti/), support him by following.
-  - Step 1: Get your free API key at https://aistudio.google.com/app/apikey.
-  - Step 2: Verify Ollama is Running 
+  - Step 1: Get your free API key at <https://aistudio.google.com/app/apikey>.
+  - Step 2: Verify Ollama is Running
     - Replace llm_api_key with your newly created API key on the file secrets.yaml located at Auto_Jobs_Applier_AIHawk\data_folder\secrets.yaml
-  - Step 2: Verify Ollama is Running 
+  - Step 2: Verify Ollama is Running
     - Replace llm_api_key with your newly created API key on the file secrets.yaml located at Auto_Jobs_Applier_AIHawk\data_folder\secrets.yaml
   - Step 3: Edit Configuration in VS Code
-    - Edit the file config.py located at Auto_Jobs_Applier_AIHawk\config.py with the following 
-    - llm_model_type: gemini 
+    - Edit the file config.py located at Auto_Jobs_Applier_AIHawk\config.py with the following
+    - llm_model_type: gemini
     - llm_model: 'gemini-pro'
 
 - Editing YAML Files
@@ -564,7 +559,6 @@ For further assistance, please create an issue on the [GitHub repository](https:
 
 - [Lang Chain Developer Documentation](https://python.langchain.com/v0.2/docs/integrations/components/)
 
-
 - If you encounter any issues, you can open an issue on [GitHub](https://github.com/feder-cr/Auto_Jobs_Applier_AIHawk/issues).
   Please add valuable details to the subject and to the description. If you need a new feature then please reflect this.  
   I'll be more than happy to assist you!
@@ -582,6 +576,7 @@ Auto_Jobs_Applier_AIHawk provides a significant advantage in the modern job mark
 If you like the project please star ⭐ the repository!
 
 ## Special Thanks
+
 [![Contributors](https://img.shields.io/github/contributors/feder-cr/Auto_Jobs_Applier_AIHawk)](https://github.com/feder-cr/Auto_Jobs_Applier_AIHawk/graphs/contributors)
 
 <a href="https://github.com/AIHawk-co/Auto_Jobs_Applier/graphs/contributors">
@@ -596,8 +591,7 @@ This project is licensed under the AGPL License. Documentation is licensed under
 
 The AGPL License requires that any derivative work must also be open source and distributed under the same license.
 
-The CC BY License permits others to distribute, remix, adapt, and build upon your work, even for commercial purposes, as long as they credit you for the original creation. 
- 
+The CC BY License permits others to distribute, remix, adapt, and build upon your work, even for commercial purposes, as long as they credit you for the original creation.
 
 ## Disclaimer
 
